@@ -1,0 +1,40 @@
+@mixin phones-sm {
+  @media (max-width: 360px) {
+    @content;
+  }
+}
+@mixin phones-md {
+  @media (max-width: 460px) {
+    @content;
+  }
+}
+@mixin phones-lg {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+@mixin phones {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+@mixin phones-landscape {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin phones-excluded {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin tablets {
+  @media (max-width: 991px) {
+    @content;
+  }
+}
+@mixin tablets-lg {
+  @media (max-width: 1112px) {
+    @content;
+  }
+}

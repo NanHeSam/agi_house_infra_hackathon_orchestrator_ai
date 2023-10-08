@@ -1,0 +1,141 @@
+@import "../../assets/styles/devices.scss";
+
+$input-background: white;
+$input-text-inactive: #aaa;
+$input-text-active: #222;
+
+@keyframes gradient {
+  0% {
+    background-position: 0 0
+  }
+  100% {
+    background-position: 100% 0
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.webflow {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 2px;
+  padding: 1rem 1rem 1rem 1rem;
+  background: $input-background;
+  transition: 0.5s cubic-bezier(0.25, 0.1, 0.8, 1.2);
+  border: 1px solid #ccc;
+  margin: 0 auto 10px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999;
+    height: 3px;
+    opacity: 0;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-position: 0% 0%;
+    background: linear-gradient(to right, #B294FF, #57E6E6, #cfd330, #57E6E6, #B294FF, #1cd3d3);
+    background-size: 500% auto;
+    animation: gradient 3s linear infinite;
+    transition: 0.4s;
+  }
+
+  &--underlined,
+  &:hover,
+  &:focus,
+  &:active {
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  &--disabled {
+    cursor: progress;
+    animation: pulse 1.8s infinite ease-in-out;
+  }
+
+  &--full {
+    max-width: 100%;
+    width: 100%;
+    min-height: 80px;
+  }
+
+  &:hover {
+    .webflow__button {
+      color: $input-text-active;
+    }
+  }
+}
+
+.webflow__input {
+  flex-grow: 1;
+  outline: none;
+  color: $input-text-active;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 24px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  transition: 1s;
+
+  &::-webkit-input-placeholder {
+    color: $input-text-inactive;
+  }
+
+  &--disabled {
+    color: #333;
+  }
+}
+
+.webflow__button {
+  color: $input-text-inactive;
+  font-size: 2.4rem;
+  line-height: 1;
+  vertical-align: middle;
+  transition: color 0.5s;
+  cursor: pointer;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0 12px;
+  outline: none;
+
+  &:hover {
+    color: $input-text-active;
+  }
+
+  @include phones-lg {
+    padding: 0 4px;
+  }
+}
+
+.webflow__textarea {
+  flex-grow: 1;
+  outline: none;
+  border: 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  resize: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

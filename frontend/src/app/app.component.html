@@ -1,0 +1,63 @@
+<div class="home" [class.home--disabled]="isFireworks" (mousemove)="onMouseMove($event)">
+  <form class="search"
+        [class.search--full]="isLoading || hasResults"
+        (ngSubmit)="search()">
+    <div class="webflow"
+         [style.min-width.px]="minWidthPx"
+         [class.webflow--underlined]="(isLoading || !hasResults) && theme == 'dark'"
+         [class.webflow--full]="isLoading || hasResults"
+         [class.webflow--disabled]="isLoading">
+
+
+      <input type="text"
+             #searchInput
+             class="webflow__input search__input"
+             [class.webflow__input--disabled]="isLoading"
+             [formControl]="instructions"
+             placeholder="Let the magic happen!">
+
+
+      <textarea #searchTextarea
+                class="webflow__textarea search__textarea"
+                [class.webflow__input--disabled]="isLoading"
+                [formControl]="instructions"
+                placeholder="Let the magic happen!">
+      </textarea>
+
+
+      <button class="webflow__button"
+              *ngIf="!isLoading"
+              type="submit">
+        <i class="icon ion-android-arrow-forward"></i>
+      </button>
+      <button class="webflow__button" *ngIf="isLoading" type="submit">
+        <img class="spinner" src="/assets/img/puff.svg" width="40" alt="">
+      </button>
+    </div>
+
+    <app-tips *ngIf="!hasResults" (tip$)="this.setInstructions($event)"></app-tips>
+
+  </form>
+
+  <app-found-agents *ngIf="agents.length" [agents]="agents" [agentToState]="agentToState"></app-found-agents>
+
+  <app-actions (start$)="startAllAgents()" [isDone]="isFireworks" *ngIf="hasResults"></app-actions>
+
+
+</div>
+<div class="theme" *ngIf="theme == 'dark'" (click)="fireUp()">🔥</div>
+
+<div class="fireworks" *ngIf="isFireworks" (click)="isFireworks = false">
+  <div class="success">Imagine using these agents to solve that problem. Isn't it MAGIC?</div>
+  <img class="fireworks__image" src="/assets/img/success/{{successImgIndex}}.jpg" alt="">
+
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+</div>

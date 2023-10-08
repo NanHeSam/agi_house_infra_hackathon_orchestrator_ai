@@ -1,0 +1,6 @@
+<div class="tips" *ngIf="showTip" [@fade]>
+  <div class="tip"
+       (click)="chooseTip(tips[currentTipIndex])">
+    {{ tips[currentTipIndex] }}
+  </div>
+</div>

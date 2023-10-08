@@ -1,0 +1,90 @@
+@import "../../assets/styles/devices.scss";
+
+.agent {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  transition: all 0.3s;
+  display: flex;
+  min-height: 82px;
+  line-height: 1.2;
+  position: relative;
+
+  &__left {
+    height: 100%;
+    padding: 14px 0 14px 14px;
+  }
+
+  &__right {
+    height: 100%;
+    padding: 14px 20px;
+
+  }
+
+  &__description-wrapper {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  &__img {
+    width: 80px;
+    height: 80px;
+  }
+
+  &__title {
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+    word-break: break-word;
+  }
+
+  &__status {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 6px 12px;
+    background: #eee;
+    border-radius: 0 0 0 2px;
+
+    &--done {
+      background: #98e2ac;
+    }
+
+    &--running {
+      background: #fff5a0;
+    }
+
+    &--stopped {
+      background: #f34e5c;
+    }
+
+    &--inqueue {
+      background: #d0d0d0;
+    }
+
+    @include phones-lg {
+      font-size: 14px;
+      padding: 2px 6px;
+    }
+  }
+
+  &__progress {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999;
+    height: 3px;
+    opacity: 1;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background: linear-gradient(to right, #B294FF, #57E6E6, #cfd330, #57E6E6, #B294FF, #1cd3d3) 0 0;
+    background-size: 500% auto;
+    animation: gradient 3s linear infinite;
+    transition: 0.4s;
+  }
+
+  &__description {
+    transition: max-width 0.3s ease-in-out;
+  }
+}

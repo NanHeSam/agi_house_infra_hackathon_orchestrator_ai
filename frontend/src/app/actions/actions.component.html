@@ -1,0 +1,11 @@
+<div class="actions">
+  <button class="button button--primary"
+          *ngIf="!isDone"
+          [class.button--loading]="isLoading"
+          (click)="start()">
+    {{isLoading ? 'The Magic is Happening ...' : 'Start All Agents'}}
+  </button>
+  <button class="button button--success" *ngIf="isDone">
+    {{'Done 🎉'}}
+  </button>
+</div>

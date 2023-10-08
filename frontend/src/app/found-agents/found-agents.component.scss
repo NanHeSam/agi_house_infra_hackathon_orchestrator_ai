@@ -1,0 +1,16 @@
+:host {
+  overflow: auto;
+}
+
+.agents {
+  &__title {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+}
+
+.agent {
+
+}

@@ -1,0 +1,79 @@
+$color1: #5784ff
+$color2: #678aed
+
+$success1: #85da6f
+$success2: #51c135
+
+button.old-button--sm
+  line-height: 26px
+
+.button
+  appearance: none
+  background: linear-gradient(65deg, #c4cdd6 0, #87929c 100%)
+  display: inline-flex
+  font-size: 14px
+  line-height: 16px
+  text-decoration: none
+  color: #fff
+  border: none
+  border-radius: 2px
+  cursor: pointer
+  justify-content: center
+  padding: 13px 24px
+  height: 40px
+  text-align: center
+  white-space: nowrap
+
+  &:hover
+    color: #fff
+
+  &--primary
+    background: linear-gradient(65deg, $color1 0, $color2 100%)
+
+    &:hover
+      background: linear-gradient(65deg, darken($color1, 3) 0, darken($color2, 3) 100%)
+
+    &:active
+      background: linear-gradient(65deg, darken($color1, 6) 0, darken($color2, 6) 100%)
+
+  &--success
+    background: linear-gradient(65deg, $success1 0, $success2 100%)
+
+    &:hover
+      background: linear-gradient(65deg, darken($success1, 3) 0, darken($success2, 3) 100%)
+
+    &:active
+      background: linear-gradient(65deg, darken($success1, 6) 0, darken($success2, 6) 100%)
+
+  &--loading
+    pointer-events: none
+    background: linear-gradient(65deg, #c4cdd6 0, #87929c 100%)
+
+  &--full
+    width: 100%
+
+  &--sm
+    height: 28px
+    padding: 6px 12px
+    font-size: 12px
+
+  &--ssm
+    height: 20px
+    padding: 2px 6px
+    font-size: 11px
+
+  &--icon
+    background: transparent
+    padding: 0
+
+  &--round
+    border-radius: 50%
+
+  &--floating
+    position: fixed
+    right: 20px
+    bottom: 20px
+
+  mat-icon
+    font-size: 17px
+    margin-right: 2px

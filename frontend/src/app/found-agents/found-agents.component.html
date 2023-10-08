@@ -1,0 +1,14 @@
+<div class="agents__title">I've got some nice AI agents for you based on your needs:</div>
+
+<div class="agents" [@fadeInAnimation] *ngIf="agents.length">
+  <div class="agent"  *ngFor="let agent of agents; let i = index">
+    <app-agent [agent]="agent" [status]="agentToState[i]"></app-agent>
+    <div class="arrow__container" *ngIf="i != (agents.length - 1)">
+<!--    <div class="arrow__container">-->
+      <div class="arrow">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>

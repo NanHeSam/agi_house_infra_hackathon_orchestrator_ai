@@ -1,0 +1,19 @@
+<div class="agent">
+  <div class="agent__left">
+    <img class="agent__img"
+         appImageFallback
+         [src]="agent.agent.icon"
+         alt="">
+  </div>
+  <div class="agent__right">
+    <h3 class="agent__title">{{agent.agent.agent_name}}</h3>
+    <div class="agent__description-wrapper">
+      <p class="agent__description">{{agent.goal}}</p>
+    </div>
+  </div>
+  <div class="agent__status agent__status--{{status.toLowerCase()}}">
+    {{status}}
+    <span *ngIf="status === Status.Done">🎉</span>
+  </div>
+  <div class="agent__progress" *ngIf="status == Status.Running"></div>
+</div>
