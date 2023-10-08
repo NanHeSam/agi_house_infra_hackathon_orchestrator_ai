@@ -12,6 +12,7 @@ class PineconeClient:
             api_key=os.environ['PINECONE_API_KEY'],
             environment=os.environ['PINECONE_ENVIRONMENT']
         )
+        openai.api_key = os.environ['OPENAI_API_KEY']
 
     def get_embeddings(self, strings, model="text-embedding-ada-002"):
         if isinstance(strings, str):
@@ -37,6 +38,4 @@ class PineconeClient:
             vector=self.get_embeddings(string)[0]
         )
         return response.to_dict()['matches']
-    
-    
 
